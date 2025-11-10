@@ -6,17 +6,6 @@
   "permissions": ["activeTab", "scripting"],
   "action": {
     "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icon16.png",
-          "32": "icon32.png",
-      "64": "icon64.png",
-      "128": "icon128.png"
-    }
-  },
-  "icons": {
-    "16": "icon16.png",
-    "32": "icon32.png",
-    "64": "icon64.png",
-    "128": "icon128.png"
+    "default_icon": "icon128.png"
   }
 }
