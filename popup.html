@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    h2 {
+      margin: 0 0 15px 0;
+      font-size: 18px;
+      color: #333;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #d2ae10;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    button:hover {
+      filter: brightness(1.1);
+    }
+    button:active{
+        filter: brightness(0.8);
+    }
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    #status {
+      margin-top: 10px;
+      margin-bottom:5px;
+      padding: 5px;
+      border-radius: 4px;
+      font-size: 14px;
+      text-align: center;
+      height: auto;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    .info {
+      background-color: #d1ecf1;
+      color: #0c5460;
+      border: 1px solid #bee5eb;
+    }
+    #info2{
+        color:red;
+        font-size:12px;
+        margin: 4px;
+    }
+    .textContainer{
+        border:1px solid rgba(128, 128, 128, 0.365);
+        padding: 10px;
+        border-radius: 20px;
+        width: auto;
+        height: auto;
+        margin-top: 10px;
+        margin-bottom: 12px;
+    }
+    #helpBtn {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #d2ae10;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+    #helpBtn:hover {
+        filter: brightness(1.1);
+    }
+    #helpBtn:active {
+        filter: brightness(0.8);
+    }
+    #helpView {
+        display: none;
+    }
+    #mainView {
+        display: block;
+    }
+    .backBtn {
+        background-color: #999 !important;
+        margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="mainView">
+  <h2>🔐 Password Hasher</h2>
+  <div class="textContainer">
+  <p style="font-size:15px;color:#333">Enter your password in password field,
+    press "Hash Password" to hash the password.
+  </p>
+  </div>
+  <button id="hashBtn">Hash Password</button>
+  <div id="status"></div>
+  <div class="textContainer">
+  <p id="info2">Generated password is your password + domain name, hashed to SHA256 and "B.2" added at the end,
+    because of usual requirement of at least 1 capital letter and 1 symbol.
+  </p>
+  </div>
+  <p id="domainName"></p>
+  </div>
+  
+  <div id="helpView">
+    <h2>❓ Help</h2>
+    <button class="backBtn" id="backBtn">← Back</button>
+    <div class="textContainer">
+      <p style="font-size:14px;color:#333;line-height:1.6;">
+        <strong>To login on other devices without this extension:</strong><br><br>
+        1. Use an online SHA256 generator<br>
+        2. Enter: <code style="background:#f0f0f0;padding:2px 5px;border-radius:3px;">your_password + domain_name</code><br>
+        3. Generate the hash<br>
+        4. Add <strong>B.2</strong> at the end of the hash<br>
+        5. That's your password!<br><br>
+        <em style="color:#666;font-size:12px;">Example: If your password is "secret" and domain is "example.com", hash "secretexample.com" and append "B.2"</em>
+      </p>
+    </div>
+  </div>
+  
+  <button id="helpBtn">?</button>
+  <script src="popup.js"></script>
+</body>
+</html>
