@@ -89,8 +89,8 @@ async function hashPasswordInPage() {
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
   
-  // Add "B.2" to ensure uppercase and symbol requirements
-  const hashedPassword = hashHex + 'B.2';
+  // Add "B.2" to ensure uppercase and symbol requirements and take only first 12 char of hash
+  const hashedPassword = hashHex.slice(0, 20) + 'B.2';
   
   // Replace the password in the field
   passwordField.value = hashedPassword;
